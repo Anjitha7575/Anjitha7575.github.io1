@@ -1,0 +1,30 @@
+<div ng-include="'common/partials/header.html'"></div>
+<div class="col-md-12">
+	<h3>Book Name : {{oneBookDetail.name}}</h3>
+
+   <table class="table  table-hover table-striped">
+            <thead>
+                <tr>
+                    <th class="" ng-repeat="heading in headerInfo">{{heading.header}}</th>
+                </tr>
+            </thead>
+            <tbody>
+            	<tr>
+            		<td>{{viewDetails.name}}</td>
+            		<td>{{viewDetails.author}}</td>
+            		<td ng-if="viewDetails.published">
+        <span ><i class="fa fa-check text-success" aria-hidden="true"></i><span>
+ </td>
+        <td ng-if="!viewDetails.published">
+  <span><i class="fa fa-times-circle-o text-danger" aria-hidden="true"></i><span>
+        </td>
+
+            	</tr>
+                
+
+            </tbody>
+        </table>
+
+        <button ng-click="backtoMain()">Go Back</button>
+
+</div>

@@ -1,0 +1,40 @@
+<div ng-include="'common/partials/header.html'"></div>
+<div class="todo-wrapper">
+      <h2>BookList</h2>
+      <table class="table  table-hover table-striped">
+            <thead>
+                <tr>
+                    <th class="" ng-repeat="heading in headerInfo">{{heading.header}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in allBooks">
+             <td>
+              <input placeholder="Book Name" type="text" ng-model="item.name" ng-disabled="!update" /></td>
+       <td>
+        <input placeholder="Book Author" type="text" ng-model="item.author" ng-disabled="!update"  />
+       </td>
+       <td ng-if="item.published">
+        <input ng-hide="!update" type="checkbox" ng-model="item.published" ng-disabled="!update"  />
+        <span ng-show="!update" ><i class="fa fa-check text-success" aria-hidden="true"></i><span>
+ </td>
+        <td ng-if="!item.published">
+          <input ng-hide="!update" type="checkbox" ng-model="item.published" ng-disabled="!update"  />
+          <span ng-show="!update"><i class="fa fa-times-circle-o text-danger" aria-hidden="true"></i><span>
+        </td>
+        <td ng-show="!update"><button class="btn btn-primary btn-sm"  ng-click="update = true">Edit</button></td>
+       <td ng-hide="!update"><button ng-disabled="!update" class="btn btn-success btn-sm"  ng-click="updateBook(item)">Update</button></td>
+       <td ><button class="btn btn-danger btn-sm"  ng-click="delete(item)">Delete</button></td>
+       <td ><button class="btn btn-primary btn-sm"  ng-click="viewDetails(item)">View</button></td>
+        </tr>
+
+
+        <tr>
+          <td><input placeholder="Book Name" type="text" ng-model="newBook.name" /></td>
+          <td><input placeholder="Book Author" type="text" ng-model="newBook.author" /></td>
+          <td><input type="checkbox" ng-model="newBook.published" /></td>
+          <td><button class="btn btn-success btn-sm"  ng-click="addBook(newBook)">Add</button></td>
+        </tr>
+            </tbody>
+        </table>
+</div>
